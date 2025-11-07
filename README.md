@@ -3,8 +3,9 @@
 **Democratizing CompuCell3D Through Accessible, Reproducible Interfaces**
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Python](https://img.shields.io/badge/python-3.8%2B-blue)
-![CompuCell3D](https://img.shields.io/badge/CompuCell3D-4.x-green)
+![Python](https://img.shields.io/badge/python-3.12.*-blue)
+![CompuCell3D](https://img.shields.io/badge/CompuCell3D-4.7.*-green)
+![Vivarium](https://img.shields.io/badge/Vivarium-4.x-green)
 
 ---
 
@@ -27,7 +28,7 @@
 
 ---
 
-## 🎯 Overview
+## Overview
 
 **Angio-GUI** is a standalone application that transforms a sophisticated CompuCell3D (CC3D) angiogenesis model into an accessible, user-friendly tool for biological researchers. It bridges the **"usability gap"** between expert-oriented computational modeling platforms and end-users such as experimental biologists, clinicians, and educators.
 
@@ -1040,3 +1041,4 @@ This application is ideal for:
 **Last Updated:** January 2025
 **Version:** 1.0.0
 **Compatibility:** CompuCell3D 4.x, Python 3.8+, Vivarium 1.x
+
