@@ -12,8 +12,8 @@ Key Features:
 - Experiment metadata tracking
 - Integration with Vivarium Engine
 
-Author: GUI Implementation
-Date: 2025
+Author: Joel Vanin
+Date: November 2025
 """
 
 import sys
@@ -2282,4 +2282,5 @@ def main():
 
 
 if __name__ == '__main__':
+
     main()
