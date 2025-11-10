@@ -226,7 +226,7 @@ Angio-GUI implements the **Integrated Architecture** pattern described in our me
 - Schema-driven widget generation (extensible)
 - Signal/slot architecture for clean separation of concerns
 
-#### **5. Storage Layer (`*.zarr/` or `*.CC3Dstore`)**
+#### **5. Storage Layer (`*.zarr/`)**
 - **Zarr**: Chunked, compressed N-dimensional arrays
 - Hierarchical groups: One per simulation run
 - Metadata attributes: All parameters stored with results
@@ -235,10 +235,10 @@ Angio-GUI implements the **Integrated Architecture** pattern described in our me
 
 ### Why This Architecture?
 
-✅ **Performance**: Process isolation, efficient parallel I/O, incremental writes
-✅ **Scalability**: Cloud-ready storage, distributed computing compatible
-✅ **Reproducibility**: Parameters and results intrinsically linked
-✅ **Composability**: Vivarium integration enables multi-scale modeling
+✅ **Performance**: Process isolation, efficient parallel I/O, incremental writes\
+✅ **Scalability**: Cloud-ready storage, distributed computing compatible\
+✅ **Reproducibility**: Parameters and results intrinsically linked\
+✅ **Composability**: Vivarium integration enables multi-scale modeling\
 ✅ **Extensibility**: Clear interfaces for adding features (ML, advanced steering)
 
 ### Comparison with Decoupled Architecture
@@ -284,16 +284,7 @@ conda install -c conda-forge mamba
 mamba install -c conda-forge -c compucell3d compucell3d=4.7.0 -y
 ```
 
-### Step 2: Clone Repository
-
-```bash
-git clone https://github.com/VaninJoel/angiogenesis-gui.git
-```
-```bash
-cd angio-gui
-```
-
-### Step 3: Install Python Dependencies
+### Step 2: Install Python Dependencies
 
 ```bash
 pip install PyQt5 numpy scipy zarr matplotlib vivarium-core
@@ -302,6 +293,27 @@ pip install PyQt5 numpy scipy zarr matplotlib vivarium-core
 pip install imageio imageio-ffmpeg scikit-image
 ```
 
+### Step 3: Clone Repository Vivarium-Angio
+```bash
+git clone https://github.com/VaninJoel/vivarium-angio.git
+```
+```bash
+cd vivarium-angio
+```
+### Install Vivarium-Angio
+```bash
+pip install -e.
+```
+### Clone Angiogenesis-GUI
+```bash
+cd ..
+```
+```bash
+git clone https://github.com/VaninJoel/angiogenesis-gui.git
+```
+```bash
+cd angio-gui
+```
 ### Step 4: Verify Installation
 
 ```bash
@@ -1039,5 +1051,6 @@ This application is ideal for:
 **Last Updated:** November 2025
 **Version:** 1.0.0
 **Compatibility:** CompuCell3D 4.7.0, Python 3.12, Vivarium 1.0
+
 
 
