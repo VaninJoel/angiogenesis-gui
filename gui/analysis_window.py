@@ -7,8 +7,8 @@ Provides tabs for:
 - Data export (CSV, images, animations)
 - Multi-experiment comparison
 
-Author: GUI Implementation
-Date: 2025
+Author: Joel Vanin
+Date: November 2025
 """
 
 import sys
@@ -1328,4 +1328,5 @@ class AnalysisWindow(QMainWindow):
             self.statusBar().showMessage(f"Comparison generated for {len(self.experiments)} experiments")
 
         except Exception as e:
+
             QMessageBox.critical(self, "Error", f"Failed to generate comparison:\n{str(e)}")
