@@ -6,8 +6,8 @@ AngiogenesisProcess ports_schema() for GUI generation.
 
 Similar to vCornea-GUI's schema_utils.py but adapted for angiogenesis model.
 
-Author: GUI Integration
-Date: 2025
+Author: Joel Vanin
+Date: November 2025
 """
 
 from pathlib import Path
@@ -589,3 +589,4 @@ def extract_parameter_documentation(schema: Dict, output_format: str = 'markdown
                 doc += "\n"
 
     return doc
+
