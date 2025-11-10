@@ -4,8 +4,8 @@ Analysis utilities for angiogenesis simulation data.
 This module provides functions for loading and analyzing zarr-formatted
 simulation data, computing network metrics, and extracting statistics.
 
-Author: GUI Implementation
-Date: 2025
+Author: Joel Vanin
+Date: November 2025
 """
 
 import json
@@ -619,4 +619,5 @@ def export_animation_mp4(frames: List[np.ndarray], output_path: Path, fps: int =
         raise ImportError("imageio required for MP4 export. Install with: pip install imageio imageio-ffmpeg")
 
     imageio.mimsave(output_path, frames, fps=fps, codec='libx264', pixelformat='yuv420p')
+
     print(f"Animation exported to {output_path}")
