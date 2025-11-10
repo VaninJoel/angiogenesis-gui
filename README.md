@@ -1004,29 +1004,29 @@ This application is ideal for:
 
 ### Common Issues
 
-**❌ GUI doesn't launch**
-✅ Check PyQt5 installation: `pip show PyQt5`
+**❌ GUI doesn't launch**\
+✅ Check PyQt5 installation: `pip show PyQt5`\
 ✅ Ensure X11 forwarding if using SSH: `export DISPLAY=:0`
 
-**❌ "zarr not available" warning**
+**❌ "zarr not available" warning**\
 ✅ Install: `pip install zarr`
 
-**❌ Video export fails**
-✅ Install ffmpeg: `pip install imageio-ffmpeg`
+**❌ Video export fails**\
+✅ Install ffmpeg: `pip install imageio-ffmpeg`\
 ✅ For GIF: `pip install imageio`
 
-**❌ Simulation won't start**
-✅ Verify CC3D installation: `python -c "import cc3d"`
+**❌ Simulation won't start**\
+✅ Verify CC3D installation: `python -c "import cc3d"`\
 ✅ Check conda environment is activated
 
-**❌ Analysis window shows no data**
-✅ Ensure simulation completed (check `run_metadata.json`)
-✅ Verify `data.zarr` folder exists and isn't empty
+**❌ Analysis window shows no data**\
+✅ Ensure simulation completed (check `run_metadata.json`)\
+✅ Verify `data.zarr` folder exists and isn't empty\
 ✅ Check logs in `logs/stderr.log` for errors
 
-**❌ "Process terminated" error**
-✅ Increase memory limit if sweeping many parameters
-✅ Reduce concurrent simulations (default: CPU cores - 1)
+**❌ "Process terminated" error**\
+✅ Increase memory limit if sweeping many parameters\
+✅ Reduce concurrent simulations (default: CPU cores - 1)\
 ✅ Check disk space for Zarr writes
 
 ### Performance Tips
@@ -1051,6 +1051,7 @@ This application is ideal for:
 **Last Updated:** November 2025
 **Version:** 1.0.0
 **Compatibility:** CompuCell3D 4.7.0, Python 3.12, Vivarium 1.0
+
 
 
 
