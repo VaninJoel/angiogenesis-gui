@@ -9,7 +9,7 @@
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Project Vision](#project-vision)
@@ -49,7 +49,7 @@ This application exemplifies the **Integrated Architecture** pattern for packagi
 
 ---
 
-## 🌟 Project Vision
+## Project Vision
 
 ### Bridging the Usability Gap
 
@@ -80,16 +80,16 @@ Angio-GUI represents a modular architectural strategy for transforming complex C
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-### 🎛️ **User-Friendly Parameter Configuration**
+### **User-Friendly Parameter Configuration**
 - **Schema-driven GUI**: Automatically generated controls from Vivarium ports_schema()
 - **Biologically meaningful inputs**: Cell adhesion energies, chemotaxis strength, VEGF production
 - **Validation**: Input constraints prevent biologically implausible values
 - **Parameter presets**: Normal, High VEGF, Low VEGF, Fast Simulation configurations
 - **Expertise levels**: Adjust parameter visibility (Basic, Intermediate, Advanced)
 
-### 🚀 **Flexible Execution Modes**
+### **Flexible Execution Modes**
 - **Single Simulations**: Run with specific parameter combinations
 - **Parameter Sweeps**: Systematic exploration of parameter space using comma-separated values
   - Example: `jee: 2,4,6,8` creates 4 variations
@@ -98,7 +98,7 @@ Angio-GUI represents a modular architectural strategy for transforming complex C
 - **Concurrent Execution**: Parallel simulation scheduling with process isolation
 - **Real-time Monitoring**: Live progress tracking via Zarr store monitoring
 
-### 💾 **Efficient Data Management**
+### **Efficient Data Management**
 - **Unified Zarr Storage**: All runs, parameters, and outputs in single hierarchical structure
 - **Incremental Writing**: Task-aware data capture (write/skip_write directives)
 - **Configurable Write Frequency**: Balance temporal resolution vs. I/O performance
@@ -108,7 +108,7 @@ Angio-GUI represents a modular architectural strategy for transforming complex C
 - **Cloud-Ready**: Format compatible with S3, GCS, Azure Blob (requires fsspec)
 - **Metadata Linking**: Parameters intrinsically linked to results for perfect reproducibility
 
-### 📊 **Comprehensive Analysis & Visualization**
+### **Comprehensive Analysis & Visualization**
 
 #### **5-Tab Analysis Interface**
 1. **📊 Metrics Tab**
@@ -147,16 +147,14 @@ Angio-GUI represents a modular architectural strategy for transforming complex C
    - **Batch folder selection** (Ctrl+multi-select support)
    - **Side-by-side metric visualization**
 
-### 🔬 **Advanced Capabilities**
-- **Locked VEGF Colorbar**: Consistent scale across all timesteps for accurate temporal comparison
-- **Cell Border Visualization**: Pixel-accurate boundaries derived from cell ID field
+### **Advanced Capabilities**
 - **Multi-Selection**: Batch add experiments with Ctrl+click for efficient workflow
 - **Complete Provenance**: Automatic logging and metadata generation
 - **Organized Output**: Auto-generated folder structure with clear naming conventions
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 Angio-GUI implements the **Integrated Architecture** pattern described in our methodology paper. This design prioritizes performance, data efficiency, and runtime control while enabling Vivarium ecosystem integration.
 
@@ -164,41 +162,41 @@ Angio-GUI implements the **Integrated Architecture** pattern described in our me
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│              PyQt5 GUI Layer                         │
+│              PyQt5 GUI Layer                        │
 │  • Parameter Configuration (Schema-Driven)          │
-│  • Execution Control (Run/Batch/Cancel)            │
+│  • Execution Control (Run/Batch/Cancel)             │
 │  • Analysis Interface (5-Tab Window)                │
 └────────────────────┬────────────────────────────────┘
                      │
 ┌────────────────────▼────────────────────────────────┐
-│         Scheduler/Worker Layer                       │
+│         Scheduler/Worker Layer                      │
 │  • Task Queue Management                            │
 │  • Process Isolation (Subprocess per Simulation)    │
-│  • Threading (QThread for GUI Responsiveness)      │
+│  • Threading (QThread for GUI Responsiveness)       │
 │  • Real-time Progress Monitoring                    │
 └────────────────────┬────────────────────────────────┘
                      │
 ┌────────────────────▼────────────────────────────────┐
-│         Vivarium Process Layer                       │
-│  • AngiogenesisProcess (Vivarium Wrapper)          │
+│         Vivarium Process Layer                      │
+│  • AngiogenesisProcess (Vivarium Wrapper)           │
 │  • ports_schema() → Parameter Definition            │
 │  • next_update() → Simulation Step                  │
 │  • State Management via Stores                      │
 └────────────────────┬────────────────────────────────┘
                      │
 ┌────────────────────▼────────────────────────────────┐
-│         Core Simulation Layer (CC3D)                 │
+│         Core Simulation Layer (CC3D)                │
 │  • SimService API Control                           │
-│  • WriterSteppable (Task-Aware I/O)                │
+│  • WriterSteppable (Task-Aware I/O)                 │
 │  • Biological Steppables (Model Logic)              │
 └────────────────────┬────────────────────────────────┘
                      │
 ┌────────────────────▼────────────────────────────────┐
-│         Zarr Storage Layer                           │
-│  • Hierarchical Data Store (.CC3Dstore)            │
+│         Zarr Storage Layer                          │
+│  • Hierarchical Data Store (.CC3Dstore)             │
 │  • Incremental Writes (Chunked Arrays)              │
 │  • Metadata Attributes (Parameters, Provenance)     │
-│  • Time-Resolved 4D Arrays [x, y, z, channels]     │
+│  • Time-Resolved 4D Arrays [x, y, z, channels]      │
 └─────────────────────────────────────────────────────┘
 ```
 
@@ -259,26 +257,39 @@ This integrated approach trades implementation complexity for performance and fl
 
 ---
 
-## 📦 Installation
-
+## Installation
 ### Prerequisites
 
-- **Python 3.8+**
-- **CompuCell3D 4.x** (with conda installation recommended)
+- **Anaconda or Miniconda**
+- **Python 3.12**
+- **CompuCell3D 4.7.x** (with conda installation recommended)
+- **Vivarium-core 1.0**
 - **Operating System**: Linux, macOS, or Windows
 
-### Step 1: Install CompuCell3D
+### Step 1: Create Isolated Conda Environment
+
+**We strongly recommend using a dedicated conda environment to avoid package conflicts.**
 
 ```bash
-# Using conda (recommended)
-conda create -n cc3d-env -c compucell3d -c conda-forge cc3d
-conda activate cc3d-env
+conda create -n angio-gui python=3.12 -y
+```
+```bash
+conda activate angio-gui
+```
+### Step 2: Install CompuCell3D (if you don't already have it)
+```bash
+conda install -c conda-forge mamba
+```
+```bash
+mamba install -c conda-forge -c compucell3d compucell3d=4.7.0 -y
 ```
 
 ### Step 2: Clone Repository
 
 ```bash
-git clone https://github.com/VaninJoel/angio-gui.git
+git clone https://github.com/VaninJoel/angiogenesis-gui.git
+```
+```bash
 cd angio-gui
 ```
 
@@ -287,10 +298,8 @@ cd angio-gui
 ```bash
 pip install PyQt5 numpy scipy zarr matplotlib vivarium-core
 ```
-
-**Optional (for video export):**
 ```bash
-pip install imageio imageio-ffmpeg  # For MP4 export
+pip install imageio imageio-ffmpeg scikit-image
 ```
 
 ### Step 4: Verify Installation
@@ -303,7 +312,7 @@ You should see the main application window open.
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Running Your First Simulation
 
@@ -357,7 +366,7 @@ Experiment: adhesion_sweep
 
 ---
 
-## 📖 User Guide
+## User Guide
 
 ### Parameter Reference
 
@@ -441,7 +450,7 @@ experiments/
 
 #### Network Connectivity Metrics
 - **Cell Density**: Fraction of domain occupied by cells
-- **Number of Clusters**: Connected component count (requires scipy)
+- **Number of Clusters**: Connected component count 
 - **Fragmentation Index**: 1 - (largest cluster size / total cells)
 - **Connectivity Index**: Largest cluster / total EC pixels
 - **Network Perimeter**: Boundary pixel count (using binary erosion)
@@ -561,7 +570,7 @@ experiments/
 
 ---
 
-## 💾 Data Management
+## Data Management
 
 ### Zarr Storage Format
 
@@ -683,7 +692,7 @@ for t, metrics in zip(results['timesteps'], results['network_metrics']):
 
 ---
 
-## 🔬 Reproducibility & CURE Compliance
+## Reproducibility & CURE Compliance
 
 This application embodies the **CURE principles** for trustworthy computational models:
 
@@ -733,7 +742,7 @@ When publishing results from Angio-GUI:
 
 ---
 
-## 🔧 Technical Details
+## Technical Details
 
 ### Execution Flow
 
@@ -819,7 +828,7 @@ class WriterSteppable(SteppableBasePy):
 
 ---
 
-## 🚀 Future Directions
+## Future Directions
 
 ### Near-Term Enhancements
 - [ ] **Advanced Network Metrics**:
@@ -850,20 +859,12 @@ class WriterSteppable(SteppableBasePy):
 ✅ Schema-driven GUI auto-generation
 
 **Next Steps:**
-1. **Composite Simulations**:
-   - Couple angiogenesis with tumor growth model
-   - Add immune cell process
-   - Integrate metabolic/signaling networks
-
-2. **Hierarchical Modeling**:
-   - Multi-scale: Molecular → Cellular → Tissue
-   - Different time scales (fast metabolism, slow angiogenesis)
-
-3. **Vivarium Marketplace**:
+1. **Vivarium Marketplace**:
    - Publish AngiogenesisProcess as reusable component
    - Enable plug-and-play composition by other researchers
+2. **Definition of framework exchangeable model definition**
 
-**Example Composite (Future):**
+**Example for Composite Intgration:**
 ```python
 from vivarium import Composer
 from angiogenesis_process import AngiogenesisProcess
@@ -902,17 +903,17 @@ composite.run(1000)  # 1000 time units
 
 ---
 
-## 📚 Citation
+## Citation
 
 If you use Angio-GUI in your research, please cite:
 
 ```bibtex
 @article{AngiogenesisGUI2025,
   title={From Expert Model to User Application: Architectural Patterns for Accessible CompuCell3D Simulations},
-  author={Vanin, Joel and [Co-authors]},
+  author={Joel Vanin and Lorenzo Veschini and Michael Getz and Catherine Mahony and James A. Glazier},
   journal={[Journal TBD]},
   year={2025},
-  note={Software available at: https://github.com/VaninJoel/angio-gui}
+  note={In preparation, Software available at: https://github.com/VaninJoel/angio-gui}
 }
 ```
 
@@ -942,7 +943,7 @@ If you use Angio-GUI in your research, please cite:
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the **MIT License** - see [LICENSE](LICENSE) file for details.
 
@@ -954,16 +955,15 @@ This project is licensed under the **MIT License** - see [LICENSE](LICENSE) file
 
 ---
 
-## 📞 Contact & Support
+## Contact & Support
 
-- **Primary Contact**: Joel Vanin <joelvanin@example.com>
-- **Issues**: [GitHub Issues](https://github.com/VaninJoel/angio-gui/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/VaninJoel/angio-gui/discussions)
-- **Forum**: [CompuCell3D Forum](https://compucell3d.org/Forum)
+- **Primary Contact**: Joel Vanin <jvanin@iu.edu>
+- **Issues**: [GitHub Issues](https://github.com/VaninJoel/angiogenesis-gui/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/VaninJoel/angiogenesis-gui/discussions)
 
 ---
 
-## 🎓 Educational Use
+## Educational Use
 
 This application is ideal for:
 - **Computational Biology Courses**: Hands-on exploration of cellular behavior
@@ -979,7 +979,7 @@ This application is ideal for:
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **CompuCell3D Team**: For the powerful simulation framework
 - **Vivarium Project**: For composable modeling standards
@@ -1032,13 +1032,12 @@ This application is ideal for:
 
 ---
 
-**Built with ❤️ for the computational biology community**
-
 *Making sophisticated simulations accessible, reproducible, and extensible.*
 
 ---
 
-**Last Updated:** January 2025
+**Last Updated:** November 2025
 **Version:** 1.0.0
-**Compatibility:** CompuCell3D 4.x, Python 3.8+, Vivarium 1.x
+**Compatibility:** CompuCell3D 4.7.0, Python 3.12, Vivarium 1.0
+
 
