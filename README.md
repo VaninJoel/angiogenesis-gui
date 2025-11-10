@@ -750,7 +750,7 @@ When publishing results from Angio-GUI:
 - [ ] Include Git commit SHA in manuscript methods
 
 **Example Methods Section:**
-> "Simulations were performed using Angio-GUI v1.0.0 (DOI:10.5281/zenodo.XXXXXX) with CompuCell3D 4.3.0 and Python 3.9.7. All parameters and complete simulation outputs are available at Zenodo (DOI:10.5281/zenodo.YYYYYY). The simulation code and GUI are version-controlled at github.com/VaninJoel/angio-gui (commit SHA: abc123)."
+> "Simulations were performed using Angio-GUI v1.0.0 (DOI:xx.xxxx/zenodo.XXXXXX) with CompuCell3D 4.7.0 and Python 3.12.x. All parameters and complete simulation outputs are available at Zenodo (DOI:xx.xxxx/zenodo.YYYYYY). The simulation code and GUI are version-controlled at github.com/VaninJoel/angio-gui (commit SHA: abc123)."
 
 ---
 
@@ -1051,6 +1051,7 @@ This application is ideal for:
 **Last Updated:** November 2025
 **Version:** 1.0.0
 **Compatibility:** CompuCell3D 4.7.0, Python 3.12, Vivarium 1.0
+
 
 
 
