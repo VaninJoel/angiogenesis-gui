@@ -6,6 +6,9 @@ This worker leverages the Integrated Architecture pattern:
 - Runs simulation in subprocess for process isolation (prevents CC3D state conflicts)
 - Monitors Zarr store for incremental progress updates (data written every 10 MCS)
 - Emits signals for GUI progress bar and completion handling
+
+Author: Joel Vanin
+Date: November 2025
 """
 
 from PyQt5.QtCore import QObject, pyqtSignal, pyqtSlot, QTimer
@@ -361,4 +364,5 @@ except Exception as e:
                 json.dump(metadata, f, indent=2)
         except Exception as e:
             print(f"Warning: Could not save run metadata: {e}")
+
 
