@@ -70,7 +70,7 @@ Angio-GUI represents a modular architectural strategy for transforming complex C
 4. **Enable Scale**: Support batch execution, parameter sweeps, and parallel processing
 5. **Facilitate Integration**: Provide pathway for Vivarium ecosystem compatibility
 
-| **Model Developers ([vivarium-angio])(https://github.com/VaninJoel/vivarium-angio)** | **End Users (This GUI)** |
+| **Model Developers (![vivarium-angio])(https://github.com/VaninJoel/vivarium-angio)** | **End Users (This GUI)** |
 |----------------------|--------------------------|
 | Design, debug, optimize simulations | Run validated models for specific tasks |
 | Full scripting access | Simplified, guided workflow |
@@ -1051,6 +1051,7 @@ This application is ideal for:
 **Last Updated:** November 2025
 **Version:** 1.0.0
 **Compatibility:** CompuCell3D 4.7.0, Python 3.12, Vivarium 1.0
+
 
 
 
