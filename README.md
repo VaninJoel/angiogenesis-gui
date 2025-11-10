@@ -245,7 +245,7 @@ Angio-GUI implements the **Integrated Architecture** pattern described in our me
 
 This integrated approach trades implementation complexity for performance and flexibility. For simpler conversion of existing CC3D projects with minimal refactoring, see our **decoupled subprocess-based architecture** (corneal epithelium example in the companion paper).
 
-| Feature | Integrated (This GUI) | Decoupled (vCornea) |
+| **Feature** | **Integrated (This GUI)** | **Decoupled [vivarium-vcornea](https://github.com/VaninJoel/vivarium-vcornea)** |
 |---------|----------------------|---------------------|
 | **Core Technology** | SimService API + Vivarium | subprocess + file I/O |
 | **Complexity** | Higher (deeper integration) | Lower (minimal changes) |
@@ -826,7 +826,7 @@ class WriterSteppable(SteppableBasePy):
 - Trade-off: Larger chunks = fewer files but less granular access
 
 **Write Frequency Trade-off:**
-| write_frequency | Temporal Resolution | Execution Time | Use Case |
+| **write_frequency** | **Temporal Resolution** | **Execution Time** | **Use Case** |
 |-----------------|--------------------|--------------------|----------|
 | 5 | High (20 snapshots for 100 MCS) | ~1.5x slower | Detailed analysis |
 | 10 | Balanced (10 snapshots) | Baseline | Standard workflow |
@@ -1051,6 +1051,7 @@ This application is ideal for:
 **Last Updated:** November 2025
 **Version:** 1.0.0
 **Compatibility:** CompuCell3D 4.7.0, Python 3.12, Vivarium 1.0
+
 
 
 
