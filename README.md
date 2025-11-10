@@ -5,7 +5,7 @@
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.12.*-blue)
 ![CompuCell3D](https://img.shields.io/badge/CompuCell3D-4.7.*-green)
-![Vivarium](https://img.shields.io/badge/Vivarium-4.x-green)
+![Vivarium](https://img.shields.io/badge/Vivarium-1.0-green)
 
 ---
 
@@ -1051,6 +1051,7 @@ This application is ideal for:
 **Last Updated:** November 2025
 **Version:** 1.0.0
 **Compatibility:** CompuCell3D 4.7.0, Python 3.12, Vivarium 1.0
+
 
 
 
